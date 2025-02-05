@@ -4,25 +4,30 @@
 #include <string>
 
 class Contact {
+
+private:
+
+    std::string darkest_secret;
+    char phoneNumber[10];
+    char first_name[10];
+    char last_name[10];
+    char nickname[10];
+
 public:
 
-   void addContact(const std::string& name, const std::string& phoneNumber) {
-            if (contacts.size() < 8) {
-                contacts.push_back({name, phoneNumber});
-            } else {
-                contacts[currentIndex] = {name, phoneNumber};
-                currentIndex = (currentIndex + 1) % 8;
-            }
-        }
+   void addContact(char f_name[10], char l_name[10], char nick[10], char num[10], char secret[10]);
+   void search_contacts();
 
-    void displayContacts() const {
-        for (const auto& contact : contacts) {
-            std::cout << "Name: " << contact.name << ", Phone Number: " << contact.phoneNumber << std::endl;
-        }
-    }
-private:
-    std::string name;
-    std::string phoneNumber;
 };
+
+void    Contact::addContact(char f_name[10], char l_name[10], char nick[10], char num[10], char secret[10])
+{
+    darkest_secret = secret;
+    // first_name.strnc
+    // last_name = last_name;
+    // nickname = nick;
+    // phoneNumber = num;
+    // darkest_secret = secret;
+}
 
 #endif
