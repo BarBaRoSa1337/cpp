@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS =  -std=c++98 #-Wall -Wextra -Werror
-SRC = contact.cpp
+SRC = main.cpp contacts.cpp 
 OBJ = $(SRC:.cpp=.o)
 TARGET = contact_book
 
