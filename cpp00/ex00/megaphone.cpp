@@ -5,17 +5,14 @@ int main(int ac, char **av) {
 
     int i = 1;
     int j = 0;
-    std::string str;
     while (i < ac)
     {
         j = 0;
-        // while (av[i][j])
-        // {
-        //     std::cout << (char)toupper(av[i][j]);
-        //     j++;
-        // }
-        str = av[i];
-        std::cout << str << std::endl;
+        while (av[i][j])
+        {
+            std::cout << (char)toupper(av[i][j]);
+            j++;
+        }
         i++;
     }
     if (ac == 1)
