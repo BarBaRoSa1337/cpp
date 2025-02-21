@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include "contact.hpp"
 
 void    PhoneBook::add_contacts()

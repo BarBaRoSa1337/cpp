@@ -1,6 +1,6 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = contact.cpp
+CXXFLAGS = -std=c++98
+SRC = contact.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 TARGET = contact_book
 
@@ -12,7 +12,13 @@ $(TARGET): $(OBJ)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+
 clean:
 	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(TARGET)
+
+re: fclean all
 
 .PHONY: all clean
