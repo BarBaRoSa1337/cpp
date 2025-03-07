@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS = -std=c++98
-SRC = contact.cpp main.cpp
+SRC = contact.cpp main.cpp Phone_book.cpp
 OBJ = $(SRC:.cpp=.o)
 TARGET = contact_book
 
@@ -11,7 +11,6 @@ $(TARGET): $(OBJ)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 
 clean:
 	rm -f $(OBJ)
