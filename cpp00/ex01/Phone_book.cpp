@@ -15,21 +15,26 @@ void    PhoneBook::add_contacts()
     std::string nick;
     std::string num;
 
-    std::cout << "Enter first name: ";
+    std::cout << ">> Enter first name: ";
     std::getline(std::cin, f_name);
-    std::cout << "Enter last name: ";
+
+    std::cout << ">> Enter last name: ";
     std::getline(std::cin, l_name);
-    std::cout << "Enter nickname: ";
+
+    std::cout << ">> Enter nickname: ";
     std::getline(std::cin, nick);
-    std::cout << "Enter phone number: ";
+
+    std::cout << ">> Enter phone number: ";
     std::getline(std::cin, num);
-    std::cout << "Enter darkest secret: ";
+
+    std::cout << ">> Enter darkest secret: ";
     std::getline(std::cin, secret);
+
     if (f_name.empty() || l_name.empty() || nick.empty() || num.empty() || secret.empty()) {
         std::cout << "All fields must be filled. Contact not saved." << std::endl;
         return;
     }
-    sim[index].join_Contact(f_name, l_name, nick, num, secret);
+    contacts[index].join_Contact(f_name, l_name, nick, num, secret);
     if (index == 8)
     {
         is_full = 1;
