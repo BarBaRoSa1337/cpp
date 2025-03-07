@@ -1,18 +1,16 @@
 #include "contact.hpp"
 
-void Contact::display_full_Contact() {
+void Contact::display_full_Contact(int index) {
 
     std::string f_name = first_name.size() > 10 ? first_name.substr(0, 9) + "." : first_name;
     std::string l_name = last_name.size() > 10 ? last_name.substr(0, 9) + "." : last_name;
     std::string nick = nickname.size() > 10 ? nickname.substr(0, 9) + "." : nickname;
-    std::string Number = Number.size() > 10 ? Number.substr(0, 9) + "." : Number;
-    std::string secret = darkest_secret.size() > 10 ? darkest_secret.substr(0, 9) + "." : darkest_secret;
-    
-    std::cout << "|" << std::setw(10) << first_name << "|";
+
+    std::cout << std::setw(10) << index << "|";
+    std::cout << std::setw(10) << f_name << "|";
     std::cout << std::setw(10) << l_name << "|";
-    std::cout << std::setw(10) << nick << "|";
-    std::cout << std::setw(10) << Number << "|";
-    std::cout << std::setw(10) << secret << "|" << std::endl;
+    std::cout << std::setw(10) << nick << std::endl; 
+
 }
 
 void    Contact::join_Contact(std::string f_name, std::string l_name, std::string nick,        std::string num, std::string secret) {

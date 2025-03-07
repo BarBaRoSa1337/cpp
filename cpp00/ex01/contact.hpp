@@ -19,7 +19,7 @@ private:
 public:
 
    void join_Contact(std::string f_name, std::string l_name, std::string nick, std::string num, std::string secret);
-    void display_full_Contact();
+    void display_full_Contact(int index);
     void display_Contact();
 };
 
