@@ -13,7 +13,13 @@ int main() {
         << "\033[0m";
    while (1)
    {
-        std::cout << "commands are ADD, SEARCH, EXIT" << std::endl;
+        std::cout << "\033[1;32m"
+            << "******************************************" << std::endl
+            << "*                                        *" << std::endl
+            << "*        commands are ADD, SEARCH, EXIT   *" << std::endl
+            << "*                                        *" << std::endl
+            << "******************************************" << std::endl
+            << "\033[0m";
         std::cout << ">> ";
         std::string command;
         std::cin >> command;
@@ -23,12 +29,12 @@ int main() {
         }
         else if (command == "SEARCH")
         {
-             phonebook.search_contacts();
+            phonebook.search_contacts();
         }
         else if (command == "EXIT")
         {
-             break;
+            return 0;
         }
    }
-    return 0;
+   return 0;
 }

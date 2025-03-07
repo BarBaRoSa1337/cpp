@@ -6,6 +6,7 @@ PhoneBook::PhoneBook()
     index = 0;
     is_full = 0;
 }
+
 void PhoneBook::add_contacts()
 {
     std::string secret;
@@ -30,12 +31,6 @@ void PhoneBook::add_contacts()
     std::cout << ">> Enter darkest secret: ";
     std::getline(std::cin, secret);
 
-    // Print all fields
-    std::cout << "First Name: " << f_name << std::endl;
-    std::cout << "Last Name: " << l_name << std::endl;
-    std::cout << "Nick Name: " << nick << std::endl;
-    std::cout << "Phone Number: " << num << std::endl;
-    std::cout << "Darkest Secret: " << secret << std::endl;
 
     if (f_name.empty() || l_name.empty() || nick.empty() || num.empty() || secret.empty()) {
         std::cout << "\033[1;31mAll fields must be filled. Contact not saved.\033[0m" << std::endl;
@@ -44,7 +39,7 @@ void PhoneBook::add_contacts()
 
     contacts[index].join_Contact(f_name, l_name, nick, num, secret);
     
-    if (index == 8) {
+    if (index == 2) {
         is_full = 1;
         index = 0;
     } else {
@@ -63,26 +58,25 @@ void    PhoneBook::search_contacts()
         return;
     }
     if (is_full)
-        tmp = 8;
+        tmp = 3;
     else
-        tmp = index;
+        tmp = index + 1;
+    std::cout << std::setw(10) << "Index" << "|"
+            << std::setw(10) << "First Name" << "|"
+            << std::setw(10) << "Last Name" << "|"
+            << std::setw(10) << "Nick Name" << std::endl;
     while (i < tmp)
     {
-        std::cout << std::setw(10) << "Index" << "|"
-              << std::setw(10) << "First Name" << "|"
-              << std::setw(10) << "Last Name" << "|"
-              << std::setw(10) << "Nick Name" << std::endl;
-        contacts[i].display_full_Contact(i + 1);
+        contacts[i].display_full_Contact(i);
         i++;
     }
     std::cout << "\033[1;32mEnter index of contact: \033[0m";
     std::cin.ignore();
     std::getline(std::cin, ind);
-    if (ind.size() != 1 || ind[0] < '0' || ind[0] > '7' || ind[0] - '0' < index || ind[0] - '0' > index)
+    if (ind.size() != 1 || ind[0] < '0' || ind[0] > '7')
 {
-        std::cout << "\033[1;31m!! Invalid index !!; Max index is && Nin is 1" << index << "\033[0m" << std::endl;
+        std::cout << "\033[1;31m!! Invalid index !!; Max index is && Nin is 0 " << index << "\033[0m" << std::endl;
         return;
     }
-    contacts[ind[0] - '0' - 1].display_Contact();
+    contacts[ind[0] - '0'].display_Contact();
 }
- 
