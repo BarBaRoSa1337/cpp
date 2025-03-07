@@ -5,12 +5,12 @@ int main() {
    PhoneBook phonebook;
 
     std::cout << "\033[1;32m"
-          << "******************************************" << std::endl
-          << "*                                        *" << std::endl
-          << "*          WELCOME TO PHONEBOOK          *" << std::endl
-          << "*                                        *" << std::endl
-          << "******************************************" << std::endl
-          << "\033[0m";
+        << "******************************************" << std::endl
+        << "*                                        *" << std::endl
+        << "*          WELCOME TO PHONEBOOK          *" << std::endl
+        << "*                                        *" << std::endl
+        << "******************************************" << std::endl
+        << "\033[0m";
    while (1)
    {
         std::cout << "commands are ADD, SEARCH, EXIT" << std::endl;

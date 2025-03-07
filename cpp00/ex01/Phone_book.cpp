@@ -31,7 +31,7 @@ void    PhoneBook::add_contacts()
     std::getline(std::cin, secret);
 
     if (f_name.empty() || l_name.empty() || nick.empty() || num.empty() || secret.empty()) {
-        std::cout << "All fields must be filled. Contact not saved." << std::endl;
+        std::cout << "\033[1;31mAll fields must be filled. Contact not saved.\033[0m" << std::endl;
         return;
     }
     contacts[index].join_Contact(f_name, l_name, nick, num, secret);
@@ -51,7 +51,7 @@ void    PhoneBook::search_contacts()
     int           i = 0;
 
     if (index == 0 && is_full == 0) {
-        std::cout << "No contacts available." << std::endl;
+        std::cout << "\033[1;31m!! No Contacts Are Available !!\033[0m" << std::endl;
         return;
     }
     if (is_full)
@@ -60,16 +60,20 @@ void    PhoneBook::search_contacts()
         tmp = index;
     while (i < tmp)
     {
-        //std::cout << index|first name| last name|  nickname << std::endl;
-        contacts[i].display_full_Contact();//display with setwd
+        std::cout << std::setw(10) << "Index" << "|"
+              << std::setw(10) << "First Name" << "|"
+              << std::setw(10) << "Last Name" << "|"
+              << std::setw(10) << "Nick Name" << "|"
+              << std::setw(10) << "Phone Num" << "|"
+              << std::setw(10) << "Secret" << std::endl;
+        contacts[i].display_full_Contact();
         i++;
     }
-    std::cout << "Enter index of contact: ";
+    std::cout << "\033[1;32mEnter index of contact: \033[0m";
     std::getline(std::cin, ind);
     if (ind.size() != 1 || ind[0] < '0' || ind[0] > '7' || ind[0] - '0' < index)
     {
-        std::cout << "Invalid index !" << std::endl;
-        std::cout << "Max index is" << index << std::endl;
+        std::cout << "\033[1;31m!! Invalid index !!; Max index is " << index << "\033[0m" << std::endl;
         return;
     }
     contacts[ind[0] - '0'].display_Contact();

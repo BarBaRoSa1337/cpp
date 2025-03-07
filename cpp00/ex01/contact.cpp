@@ -8,8 +8,6 @@ void Contact::display_full_Contact() {
     std::string Number = Number.size() > 10 ? Number.substr(0, 9) + "." : Number;
     std::string secret = darkest_secret.size() > 10 ? darkest_secret.substr(0, 9) + "." : darkest_secret;
     
-    std::cout << "First Name" << "|" << "Last Name" << "|" << "Nick Name" 
-        << "|" << "Number" << "|" << "Darkest secret" << std::endl;
     std::cout << "|" << std::setw(10) << first_name << "|";
     std::cout << std::setw(10) << l_name << "|";
     std::cout << std::setw(10) << nick << "|";
