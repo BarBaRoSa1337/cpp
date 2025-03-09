@@ -23,6 +23,8 @@ int main() {
         std::cout << ">> ";
         std::string command;
         std::cin >> command;
+        if (command.empty())
+            return 1;
         if (command == "ADD")
         {
             phonebook.add_contacts();
