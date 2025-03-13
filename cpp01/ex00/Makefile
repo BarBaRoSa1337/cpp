@@ -1,8 +1,8 @@
 CXX = c++ 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJ = $(SRC:.cpp=.o)
-TARGET = fight
+TARGET = zombie
 
 all: $(TARGET)
 
