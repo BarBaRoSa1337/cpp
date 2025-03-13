@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+// #include <fstream>
 #include <string>
 
 void replaceAndWriteToFile(const std::string& filename, const std::string& s1, const std::string& s2) {
@@ -14,27 +14,34 @@ void replaceAndWriteToFile(const std::string& filename, const std::string& s1, c
         return;
     }
 
-    std::string outputFilename = filename + ".replace";
-    std::ofstream outputFile(outputFilename);
+    // std::string outputFilename = filename + ".replace";
+    std::ofstream outputFile(filename + ".replace");
     if (!outputFile) {
-        std::cerr << "Error: Unable to create file " << outputFilename << std::endl;
+        std::cerr << "Error: Unable to create file " << filename + ".replace" << std::endl;
         return;
     }
 
     std::string line;
-    while (std::getline(inputFile, line)) {
-        std::string result;
-        size_t pos = 0;
-        while ((pos = line.find(s1, pos)) != std::string::npos) {
-            result.append(line, 0, pos);
-            result += s2;
-            pos += s1.length();
-            line = line.substr(pos);
-        }
-        result += line;
-        outputFile << result << '\n';
-    }
-
+    while(inputFile)
+	{
+		std::size_t	pos = 0;
+		getline(inputFile, line);
+		while (true)
+		{
+			pos = line.find(s1, pos);
+			if (pos != std::string::npos)
+			{
+				line.erase(pos, s1.length());
+				line.insert(pos, s2);
+			}
+			else
+				break;
+		}
+		outputFile << line ;
+		if (inputFile.eof())
+			break ;
+		outputFile << std::endl;
+	}
     inputFile.close();
     outputFile.close();
     std::cout << "Replacement complete. Output saved in " << outputFilename << std::endl;
