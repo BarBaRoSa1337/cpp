@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <string.h>
 
 void FileReplace(std::ifstream &inFile, std::ofstream &outFile, std::string s1, std::string s2) {
     std::string line;
@@ -9,7 +9,7 @@ void FileReplace(std::ifstream &inFile, std::ofstream &outFile, std::string s1, 
     {
         std::size_t pos = 0;
         getline(inFile, line);
-        while (1)
+        while (true)
         {
             pos = line.find(s1, pos);
             if (pos != std::string::npos) 
@@ -43,8 +43,7 @@ int main(int ac, char *av[]) {
         std::cerr << "Error: inFile not open!\n";
         return (1);
     }
-    std::string outFileName = av[1];
-    outFile.open(outFileName + ".replace", std::ios::trunc | std::ios::out);
+    outFile.open(strcat(av[1], ".replace"), std::ios::trunc | std::ios::out);
     if (!outFile.is_open())
     {
         inFile.close();
