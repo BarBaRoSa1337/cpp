@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string.h>
 
-void FileReplace(std::ifstream &inFile, std::ofstream &outFile, std::string s1, std::string s2) {
+void FileReplace(std::ifstream& inFile, std::ofstream &outFile, std::string s1, std::string s2) {
     std::string line;
 
     while (inFile)
@@ -12,7 +12,7 @@ void FileReplace(std::ifstream &inFile, std::ofstream &outFile, std::string s1, 
         while (true)
         {
             pos = line.find(s1, pos);
-            if (pos != std::string::npos) 
+            if (pos != std::string::npos)
             {
                 line.erase(pos, s1.length());
                 line.insert(pos, s2);

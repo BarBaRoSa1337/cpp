@@ -2,13 +2,14 @@
 
 Animal::Animal()
 {
-    type = "Animal";
+    type = "Aniaml";
     std::cout << "Constur of animal is called\n";
 }
 
-std::string Animal::getType() const
+Animal::Animal(std::string peet)
 {
-    return type;
+    type = peet;
+    std::cout << "Paramiterized Constur of animal is called\n";
 }
 
 Animal::Animal(const Animal& copy)
@@ -27,7 +28,17 @@ Animal& Animal::operator=(const Animal& copy)
     return (*this);
 }
 
+std::string Animal::getType() const
+{
+    return type;    
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "I'm Animooooo siiiir" << std::endl;
+}
+
 Animal::~Animal()
 {
-    std::cout << "Animal Deconstructer Called" << std::endl;
+    std::cout << "Animal Deconstructer called!" << std::endl;   
 }

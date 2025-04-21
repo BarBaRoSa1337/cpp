@@ -3,7 +3,7 @@
 typedef void (Harl::*fun_ptr)( void );
 
 void    Harl::debug(void) {
-    std::cout << "[DEBUG]\n" << " love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!\n";
+    std::cout << "[DEBUG]\n" << "love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!\n";
 }
 
 void    Harl::info(void) {
@@ -11,7 +11,7 @@ void    Harl::info(void) {
 }
 
 void    Harl::warning(void) {
-    std::cout << "[WARNING]\n" << " think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.\n";
+    std::cout << "[WARNING]\n" << "think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.\n";
 }
 
 void    Harl::error(void) {

@@ -15,7 +15,6 @@ Cat::Cat(const Cat& copy)
 
 Cat& Cat::operator=(const Cat& copy)
 {
-
     if (this != &copy)
     {
         this->type = copy.type;
@@ -25,15 +24,13 @@ Cat& Cat::operator=(const Cat& copy)
     return (*this);
 }
 
-void Cat::makeSound()
-{
+void Cat::makeSound() { 
     std::cout << "Meow, Tsseb Ssir\n";
 }
 
-
 Cat::~Cat()
 {
-    delete ideas;
     std::cout << "DeConstructer of Cat is called\n";
     std::cout << std::endl;
+    delete ideas;
 }

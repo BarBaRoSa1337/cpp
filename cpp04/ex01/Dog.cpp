@@ -31,6 +31,6 @@ void Dog::makeSound()
 
 Dog::~Dog()
 {
-    delete ideas;
     std::cout << "Dog Decunstructor Called" << std::endl;
+    delete ideas;
 }

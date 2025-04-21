@@ -17,10 +17,10 @@ Brain & Brain::operator=(const Brain& copy)
     {
         for(int i = 0; i < 100; i++)
         {
-            this->ideas[i] = src.ideas[i];
+            this->ideas[i] = copy.ideas[i];
         }
     }
-    std::cout << "copy assignement " << std::endl;
+    std::cout << "copy assignement " << std::endl ;
     return *this;
 }
 

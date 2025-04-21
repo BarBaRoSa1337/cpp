@@ -2,9 +2,14 @@
 
 Cat::Cat()
 {
-    type = "CAT";
-    ideas = new Brain();
+    type = "Cat";
     std::cout << "Constur of Cat is called\n";
+}
+
+Cat::Cat(std::string peet)
+{
+    type = peet;
+    std::cout << "Paramiterized Constur of Cat is called\n";
 }
 
 Cat::Cat(const Cat& copy)
@@ -15,25 +20,20 @@ Cat::Cat(const Cat& copy)
 
 Cat& Cat::operator=(const Cat& copy)
 {
-
     if (this != &copy)
     {
         this->type = copy.type;
-        ideas = new Brain();
     }
     std::cout << "Copy assignement Constur of Cat is called\n";
     return (*this);
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "Meow, Tsseb Ssir\n";
 }
 
-
 Cat::~Cat()
 {
-    delete ideas;
-    std::cout << "DeConstructer of Cat is called\n";
-    std::cout << std::endl;
+    std::cout << "Cat deconstructer Called" << std::endl;
 }
