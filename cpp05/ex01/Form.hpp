@@ -16,7 +16,7 @@ public:
     Form(const std::string &name, int gradeToSign, int gradeToExecute);
     Form(const Form &src);
     ~Form();
-    Form &operator=(const Form &rhs);
+    Form &operator=(const Form &copy);
 
     const std::string &getName() const;
     bool getIsSigned() const;

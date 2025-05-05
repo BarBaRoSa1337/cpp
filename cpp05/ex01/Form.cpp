@@ -13,6 +13,16 @@ Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
 }
 
+
+Form& Form::operator=(const Form &copy)
+{
+    if (this != &copy)
+    {
+    }
+    return *this;
+}
+
+
 Form::Form(const Form &src)
     : _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute)
 {

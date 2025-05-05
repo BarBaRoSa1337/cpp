@@ -19,7 +19,14 @@ AForm::AForm(const AForm &copy) :
     _gradeToSign(copy._gradeToSign), 
     _gradeToExecute(copy._gradeToExecute) 
 {
-    // Any additional initialization if needed
+}
+
+AForm &AForm::operator=(const AForm &copy)
+{
+    if (this != &copy)
+    {
+    }
+    return *this;
 }
 
 AForm::~AForm()
