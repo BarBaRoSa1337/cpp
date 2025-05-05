@@ -44,8 +44,7 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp",
-        "ctime": "cpp"
+        "typeinfo": "cpp"
     },
     "github.copilot.enable": {
         "*": true,

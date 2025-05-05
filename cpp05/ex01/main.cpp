@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
-
+1
 int main()
 {
     std::cout << "------------------------" << std::endl;
