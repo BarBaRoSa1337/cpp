@@ -3,6 +3,7 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include <cstdlib>  // For rand() and srand()
 
 class Bureaucrat;
 class AForm;
@@ -18,7 +19,7 @@ public:
     RoborMyRequestForm(std::string targ);
     ~RoborMyRequestForm();
 
-    void ft_exec();
+    void ft_exec() const;
 };
 
 #endif /* FORM_HPP */

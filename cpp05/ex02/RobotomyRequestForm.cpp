@@ -31,7 +31,7 @@ RoborMyRequestForm::~RoborMyRequestForm()
 {
 }
 
-void RoborMyRequestForm::ft_exec()
+void RoborMyRequestForm::ft_exec() const
 {
    if (rand() % 2)
     std::cout << _target << "has been robotomized successfull" << std::endl; 

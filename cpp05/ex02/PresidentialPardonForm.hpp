@@ -18,7 +18,7 @@ public:
     PresedentialPardonForm(std::string targ);
     ~PresedentialPardonForm();
 
-    void ft_exec();
+    void ft_exec() const;
 };
 
 #endif /* FORM_HPP */

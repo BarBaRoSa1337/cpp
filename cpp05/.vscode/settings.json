@@ -44,12 +44,14 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "ctime": "cpp"
     },
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

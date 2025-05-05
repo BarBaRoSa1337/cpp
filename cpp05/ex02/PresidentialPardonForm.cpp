@@ -29,7 +29,7 @@ PresedentialPardonForm::~PresedentialPardonForm()
 {
 }
 
-void PresedentialPardonForm::ft_exec()
+void PresedentialPardonForm::ft_exec() const
 {
    std::cout << _target << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

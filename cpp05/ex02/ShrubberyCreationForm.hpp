@@ -18,7 +18,7 @@ public:
     ShrubberyCreationForm(std::string targ);
     ~ShrubberyCreationForm();
 
-    void ft_exec();
+    void ft_exec()const;
 };
 
 #endif /* FORM_HPP */

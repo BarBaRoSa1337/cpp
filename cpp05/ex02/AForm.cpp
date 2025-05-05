@@ -13,6 +13,15 @@ AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
 }
 
+AForm::AForm(const AForm &copy) : 
+    _name(copy._name), 
+    _isSigned(copy._isSigned), 
+    _gradeToSign(copy._gradeToSign), 
+    _gradeToExecute(copy._gradeToExecute) 
+{
+    // Any additional initialization if needed
+}
+
 AForm::~AForm()
 {
 }
