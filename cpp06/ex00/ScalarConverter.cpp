@@ -35,7 +35,7 @@ void ScalarConverter::printDouble(double d)
     std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
-void ScalarConverter::printCharImpossible()
+void ScalarConverter::convert(const std::string &literal)
 {
-    std::cout << "char: impossible" << std::endl;
+    if (literal == "inf")
 }
