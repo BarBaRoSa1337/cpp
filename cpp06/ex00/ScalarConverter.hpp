@@ -16,11 +16,12 @@ public:
     ScalarConverter &operator=(const ScalarConverter &copy);
 
     static void convert(const std::string &literal);
-    static void printChar(char c);
-    static void printInt(int i);
-    static void printFloat(float f);
-    static void printDouble(double d);
-    static void printCharImpossible();
 };
+
+void print_char(const std::string &literal);
+void print_int(const std::string &literal);
+void print_float(const std::string &literal);
+void print_double(const std::string &literal);
+
 
 #endif
