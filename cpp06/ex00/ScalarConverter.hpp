@@ -4,18 +4,17 @@
 #include <string>
 #include <limits>
 #include <cmath>
-
 #include <iomanip>
 
 class ScalarConverter
 {
-public:
-    ScalarConverter();
-    ~ScalarConverter();
-    ScalarConverter(const ScalarConverter &copy);
-    ScalarConverter &operator=(const ScalarConverter &copy);
-
-    static void convert(const std::string &literal);
+    private:
+        ScalarConverter();
+        ~ScalarConverter();
+        ScalarConverter(const ScalarConverter &copy);
+        ScalarConverter &operator=(const ScalarConverter &copy);
+    public:
+        static void convert(const std::string &literal);
 };
 
 void print_char(const std::string &literal);

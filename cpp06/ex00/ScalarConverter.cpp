@@ -1,10 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <iomanip>
-#include <limits>
-#include <cstdlib>
-#include <cmath>
-#include <cctype>
 
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::~ScalarConverter() {}
@@ -22,21 +16,15 @@ static bool isChar(const std::string& s) {
 }
 
 static bool isInt(const std::string& s) {
-    char* end;
-    std::strtol(s.c_str(), &end, 10);
-    return *end == '\0';
+   
 }
 
 static bool isFloat(const std::string& s) {
-    char* end;
-    std::strtof(s.c_str(), &end);
-    return *end == 'f';
+   
 }
 
 static bool isDouble(const std::string& s) {
-    char* end;
-    std::strtod(s.c_str(), &end);
-    return (*end == '\0');
+    
 }
 
 void print_char(const std::string& literal) {
@@ -68,9 +56,12 @@ void print_float(const std::string &literal)
 {
     float f = std::strtof(literal.c_str(), NULL);
     int i = static_cast<int>(f);
+
     if (std::isnan(f) || std::isinf(f)) {
         std::cout << "char: impossible\nint: impossible\n";
-    } else {
+    }
+    else
+    {
         if (i >= 32 && i <= 126)
             std::cout << "char: '" << static_cast<char>(i) << "'\n";
         else
@@ -85,9 +76,12 @@ void print_double(const std::string &literal)
 {
     double d = std::strtod(literal.c_str(), NULL);
     int i = static_cast<int>(d);
+
     if (std::isnan(d) || std::isinf(d)) {
         std::cout << "char: impossible\nint: impossible\n";
-    } else {
+    }
+    else
+    {
         if (i >= 32 && i <= 126)
             std::cout << "char: '" << static_cast<char>(i) << "'\n";
         else
