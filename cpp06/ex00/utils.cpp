@@ -1,24 +1,74 @@
+#include "utils.hpp"
 #include "ScalarConverter.hpp"
 
-static bool isPseudoLiteral(const std::string& s) {
+bool isPseudoLiteral(const std::string& s)
+{
     return s == "nan" || s == "nanf" || s == "+inf" || s == "+inff" ||
            s == "-inf" || s == "-inff";
 }
 
-static bool isChar(const std::string& s) {
+bool isChar(const std::string& s)
+{
     return s.length() == 1 && std::isprint(s[0]) && !std::isdigit(s[0]);
 }
 
-static bool isInt(const std::string& s) {
-   
+bool isInt(const std::string& literal)
+{
+    size_t i = 0;
+    if (literal[i] == '-' || literal[i] == '+')
+        i++;
+    for (size_t j = i; j < literal.size(); j++)
+    {
+        if ((literal[j] < '0' || literal[j] > '9') || literal[j] == '.')
+            return false;
+    }
+    return true;
 }
 
-static bool isFloat(const std::string& s) {
-   
+bool isFloat(const std::string& literal)
+{
+   int flag = 0;
+    size_t i = literal.size();
+    if (literal[i-1] != 'f')
+        return false;
+    i = 0;
+    if (literal[i] == '-' || literal[i] == '+')
+        i++;
+    while(i < (literal.size() - 1))
+    {
+        if (literal[i] == '.' && flag == 0)
+        {
+            flag = 1;
+            i++;
+        }
+        else if (literal[i] >= '0' && literal[i] <= '9')
+            i++;
+        else
+            return false;
+    }
+    return true;
 }
 
-static bool isDouble(const std::string& s) {
-    
+bool isDouble(const std::string& literal)
+{
+    size_t flag, i;
+
+    flag = i = 0;
+    if (literal[i] == '-' || literal[i] == '+')
+        i++;
+    while(i < literal.size())
+    {
+        if (literal[i] == '.' && flag == 0)
+        {
+            flag = 1;
+            i++;
+        }
+        else if (literal[i] >= '0' && literal[i] <= '9')
+            i++;
+        else
+            return false;
+    }
+    return true;
 }
 
 void print_char(const std::string& literal) {
@@ -45,17 +95,14 @@ void print_int(const std::string &literal)
         std::cout << "float: " << static_cast<float>(i) << "f\n";
         std::cout << "double: " << static_cast<double>(i) << "\n";
 }
- 
+
 void print_float(const std::string &literal)
 {
     float f = std::strtof(literal.c_str(), NULL);
     int i = static_cast<int>(f);
-
     if (std::isnan(f) || std::isinf(f)) {
         std::cout << "char: impossible\nint: impossible\n";
-    }
-    else
-    {
+    } else {
         if (i >= 32 && i <= 126)
             std::cout << "char: '" << static_cast<char>(i) << "'\n";
         else
@@ -70,12 +117,9 @@ void print_double(const std::string &literal)
 {
     double d = std::strtod(literal.c_str(), NULL);
     int i = static_cast<int>(d);
-
     if (std::isnan(d) || std::isinf(d)) {
         std::cout << "char: impossible\nint: impossible\n";
-    }
-    else
-    {
+    } else {
         if (i >= 32 && i <= 126)
             std::cout << "char: '" << static_cast<char>(i) << "'\n";
         else
@@ -85,3 +129,4 @@ void print_double(const std::string &literal)
     std::cout << "float: " << static_cast<float>(d) << "f\n";
     std::cout << "double: " << d << "\n";
 }
+

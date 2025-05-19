@@ -33,7 +33,7 @@ void identify(Base &p)
         Class_A& a = dynamic_cast<Class_A&>(p);
         if (a)
             std::cout << "this is Class_A object\n";
-        return ;  
+        return ;
     }
     catch()
     {

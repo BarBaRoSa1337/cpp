@@ -5,15 +5,15 @@
 #include <stdint.h>
 
 class Serializer {
-public:
+    private:
     Serializer();
+    Serializer(const Serializer &src);
+    Serializer &operator=(const Serializer &rhs);
     ~Serializer();
 
-    uintptr_t serialize(Data *ptr);
-    Data* deserialize(uninptr_t raw);
-    
-private:
-    int _value;
+public:
+    static uintptr_t serialize(Data *ptr);
+    static Data* deserialize(uintptr_t raw);
 };
 
-#endif // SERIALIZER_HPP
+#endif

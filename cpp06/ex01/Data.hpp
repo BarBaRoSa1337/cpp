@@ -7,13 +7,16 @@
 
 class Data {
     private:
-    int _value;
+    int _data;
 public:
     Data();
+    Data(int value);
+    Data(const Data &src);
+    Data &operator=(const Data &rhs);
     ~Data();
     
     int getValue() const;
     void setValue(int value);
 };
 
-#endif // DATA_HPP
+#endif
