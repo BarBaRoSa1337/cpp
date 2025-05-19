@@ -1,15 +1,18 @@
 #include "Base.hpp"
-#include "Class_Abc.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 int main()
 {
-    Base *base = generate();
-    identify(base);
+    Base& p1 = *generate();
+    Base* p2 = generate();
+    Base* tmp = &p1;
 
-    Base &test2 = generate()
-    identify(test2);
+    identify(p1);
+    identify(p2);
 
-    delete &test2;
-    delete base;
+    delete tmp;
+    delete p2;
     return 0;
 }

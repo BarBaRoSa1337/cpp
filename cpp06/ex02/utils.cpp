@@ -1,12 +1,17 @@
 #include "Base.hpp"
-#include "Class_Abc.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include <cstdlib>
+#include <ctime>
 
 Base *generate(void)
 {
-    int random = rand() % 3;
-    if (random == 0)
+    std::srand(std::time(0));
+    int rand = std::rand() % 3;
+    if (rand == 0)
         return new Class_A();
-    else if (random == 1)
+    else if (rand == 1)
         return new Class_B();
     else
         return new Class_C();
@@ -31,32 +36,24 @@ void identify(Base &p)
 {
     try {
         Class_A& a = dynamic_cast<Class_A&>(p);
-        if (a)
-            std::cout << "this is Class_A object\n";
-        return ;
-    }
-    catch()
-    {
-    }
-    try
-    {
+        std::cout << "this is Class_A object\n";
+        (void)a;
+        return;
+    } catch (const std::exception&) {}
+
+    try {
         Class_B& b = dynamic_cast<Class_B&>(p);
-        if (b)
-            std::cout << "this is Class_B object\n";
-        return ;
-    }
-    catch(const std::exception& e)
-    {
-    }
-    try
-    {
+        std::cout << "this is Class_B object\n";
+        (void)b;
+        return;
+    } catch (const std::exception&) {}
+
+    try {
         Class_C& c = dynamic_cast<Class_C&>(p);
-        if (a)
-            std::cout << "this is Class_C object\n";
-        return ;
-    }
-    catch()
-    {
-    }
-    std::cout << "his object is unkown\n";
+        std::cout << "this is Class_C object\n";
+        (void)c;
+        return;
+    } catch (const std::exception&) {}
+
+    std::cout << "this object is unknown\n";
 }
