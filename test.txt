@@ -1,0 +1,6 @@
+so static cast convert releated types without affecting bits and size, it cehecks if casting is valid at run time
+
+reinpeter cast used to convert the memory reoresentation and size without affecting bits , it dont validate if casting is valid it forces the compile to threat a variable as if it have a diferent types
+
+
+
