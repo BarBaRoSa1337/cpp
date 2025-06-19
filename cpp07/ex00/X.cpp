@@ -1,5 +1,6 @@
 #include "X.hpp"
 
+template <typename X>
 void swap(X _swap1, X _swap2)
 {
     X tmp;
@@ -9,6 +10,7 @@ void swap(X _swap1, X _swap2)
     _swap1 = tmp;
 }
 
+template <typename X>
 X min(X x1, X x2)
 {
     if (x1 == x2)
@@ -19,6 +21,7 @@ X min(X x1, X x2)
         return x2;
 }
 
+template <typename X>
 X max(X x1, X x2)
 {
     if (x1 == x2)
