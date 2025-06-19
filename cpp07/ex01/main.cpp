@@ -1,4 +1,29 @@
 #include "iter.hpp"
+<<<<<<< HEAD
+
+void toUpperCase(const std::string& value)
+{
+    for (size_t i = 0; i < value.length(); ++i)
+    {
+        char upperChar = value[i];
+        if (upperChar >= 'a' && upperChar <= 'z')
+        {
+            upperChar -= ('a' - 'A');
+        }
+        std::cout << upperChar;
+    }
+    std::cout << std::endl;
+}
+
+int main()
+{
+    std::string arr[] = {"Hello", "World", "!"};
+    int length = sizeof(arr) / sizeof(arr[0]);
+
+    iter<std::string>(arr, length, toUpperCase);
+
+    return 0;
+=======
 class Awesome
 {
   public:
@@ -29,4 +54,5 @@ int main() {
   iter( tab2, 5, print<Awesome> );
 
   return 0;
+>>>>>>> 1a5507ec1065ad9c905097cad70141ecd2d697a7
 }
