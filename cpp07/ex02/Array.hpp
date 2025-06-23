@@ -1,29 +1,63 @@
-#ifndef ITER_HPP
-#define ITER_HPP
-
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
+#define nullptr 0
 #include <iostream>
-#include <string>
 
-template <typename X> class Arr {
-    private:
-        X* array;
-        unsigned int len;
-    public:
-    Arr(): len(0)
-    {
-        array = new X[1];
-        array[0] = 0;
+template <typename T>
+class Array {
+private:
+    T* _array;
+    unsigned int _size;
+public:
+    Array(unsigned int size = 0) : _size(size) {
+        if (size > 0) {
+            _array = new T[size];
+        } else {
+            _array = nullptr;
+        }
     }
-    Arr(unsigned int lenght) : len(lenght)
-    {
-        array = new X[lenght];
-        for (int i = 0; i < lenght; i++)
-            array[i] = 0;
+
+    Array(const Array& other) : _size(other._size) {
+        if (_size > 0) {
+            _array = new T[_size];
+            for (unsigned int i = 0; i < _size; ++i) {
+                _array[i] = other._array[i];
+            }
+        } else {
+            _array = nullptr;
+        }
     }
-    Arr &operator=(const Arr& other);
-    Arr &operator[](int index);
-    size_t size();
+
+    ~Array() {
+        delete[] _array;
+    }
+
+    Array& operator=(const Array& other) {
+        if (this != &other) {
+            delete[] _array;
+            _size = other._size;
+            if (_size > 0) {
+                _array = new T[_size];
+                for (unsigned int i = 0; i < _size; ++i) {
+                    _array[i] = other._array[i];
+                }
+            } else {
+                _array = nullptr;
+            }
+        }
+        return *this;
+    }
+
+    T& operator[](int index) {
+        if (index < 0 || static_cast<unsigned int>(index) >= _size) {
+            throw std::out_of_range("Index out of bounds");
+        }
+        return _array[index];
+    }
+
+    unsigned int size() const {
+        return _size;
+    }
 };
-
 
 #endif

@@ -1,13 +1,17 @@
-#include "X.hpp"
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
+
+#include <iostream>
+#include <string>
 
 template <typename X>
-void swap(X _swap1, X _swap2)
+void swap(X& _swap1, X& _swap2)
 {
     X tmp;
 
-    tmp = _swap2;
-    _swap2 = _swap1;
-    _swap1 = tmp;
+    tmp = _swap1;
+    _swap1 = _swap2;
+    _swap2 = tmp;
 }
 
 template <typename X>
@@ -31,3 +35,5 @@ X max(X x1, X x2)
     else
         return x1;
 }
+
+#endif
