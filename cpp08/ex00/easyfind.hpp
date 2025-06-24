@@ -4,13 +4,15 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <stdexcept>
 
-template <typename T>int easyfind(T cont, int x)
-{
-    if (std::find(cont.begin(), cont.end(), x))
-        return (1);
-    throw("Occurence Was Not Found");
-    return 0;
+template <typename T>
+int easyfind(T& cont, int x) {
+    typename T::iterator it = std::find(cont.begin(), cont.end(), x);
+    if (it != cont.end())
+        return *it;
+    throw std::runtime_error("Occurrence was not found");
 }
+
 
 #endif

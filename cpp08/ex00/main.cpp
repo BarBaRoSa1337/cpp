@@ -9,7 +9,18 @@ int main()
 
     try
     {
-        easyfind<std::vector<int>>(numbers, 20);
+        int i = easyfind<std::vector<int> >(numbers, 20);
+        std::cout << i << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    try
+    {
+        int i = easyfind<std::vector<int> >(numbers, 21);
+        std::cout << i << std::endl;
     }
     catch(const std::exception& e)
     {
