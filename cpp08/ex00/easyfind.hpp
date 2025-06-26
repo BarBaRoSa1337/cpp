@@ -14,5 +14,4 @@ int easyfind(T& cont, int x) {
     throw std::runtime_error("Occurrence was not found");
 }
 
-
 #endif

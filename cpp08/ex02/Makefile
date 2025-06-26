@@ -1,8 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Span.cpp
+SRC = main.cpp 
 OBJ = $(SRC:.cpp=.o)
-TARGET = span
+TARGET = mutant
 
 all: $(TARGET)
 
